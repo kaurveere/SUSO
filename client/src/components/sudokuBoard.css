@@ -1,0 +1,49 @@
+:root {
+  --cell-size: 44px;
+  --gap: 0px;
+  --cell-bg: #20B2AA;
+  --cell-border: #1f2937;
+  --accent: #61dafb;
+}
+
+/* Grid container */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(9, var(--cell-size));
+  grid-auto-rows: var(--cell-size);
+  gap: var(--gap);
+  width: max-content;
+  padding: var(--gap);
+  border-radius: 2px;
+  border: 2px solid var(--cell-border);
+  margin: 20px;
+}
+
+/* Each cell button */
+.cell-button {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 1px solid var(--cell-border);
+  border-radius: 0px;
+  background: var(--cell-bg);
+  color: #e5e7eb;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* 3x3 thicker lines*/
+.grid > .cell-button:nth-child(9n),
+.grid > .cell-button:nth-child(9n-6),
+.grid > .cell-button:nth-child(9n-3) {
+  border-right-width: 2px;
+}
+
+.grid > .cell-button:nth-child(n+73),
+.grid > .cell-button:nth-child(n+46):nth-child(-n+54),
+.grid > .cell-button:nth-child(n+19):nth-child(-n+27) {
+  border-bottom-width: 2px;
+}
