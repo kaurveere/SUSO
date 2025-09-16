@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Header from './components/header'
-import SudokuBoard from './components/sudokuBoard'
+import SudokuBoard, { clearBoard } from './components/sudokuBoard'
 import SubmitPanel from './components/submitPanel'
 import './App.css'
 
@@ -34,12 +34,19 @@ function App() {
     }
   };
 
+  const clearBoard = () => {
+    setGrid(prev => prev.map(row => row.map(() => "")));
+  };
+
+
+
   return (
     <div>
       <Header />
       <div className='row'>
         <SudokuBoard grid={grid} setGrid={setGrid} />
         <SubmitPanel onSubmit={submitGrid} />
+        <button className='clear-button' onClick={clearBoard}>Clear the board</button>
       </div>
       
     </div>
